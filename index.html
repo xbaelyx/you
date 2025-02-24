@@ -1,12 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Something Beautiful</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+        .message {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+    </style>
+</head>
 <body>
-<video id="video" autoplay></video>
-<script>
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
-    .then(stream => {
-        document.getElementById('video').srcObject = stream;
-    })
-    .catch(err => console.error("Error accessing camera: ", err));
-</script>
+    <video id="video" autoplay></video>
+    <div class="message">Here it is... Something truly beautiful! 😊</div>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+        .then(stream => {
+            document.getElementById('video').srcObject = stream;
+        })
+        .catch(err => console.error("Error accessing camera: ", err));
+    </script>
 </body>
 </html>

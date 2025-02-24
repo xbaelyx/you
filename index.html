@@ -1,0 +1,12 @@
+<html>
+<body>
+<video id="video" autoplay></video>
+<script>
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+    .then(stream => {
+        document.getElementById('video').srcObject = stream;
+    })
+    .catch(err => console.error("Error accessing camera: ", err));
+</script>
+</body>
+</html>
